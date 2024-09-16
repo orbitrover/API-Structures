@@ -1,0 +1,6 @@
+@Core.RESTfulAPIs_HostAddress = http://localhost:5197
+
+GET {{Core.RESTfulAPIs_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

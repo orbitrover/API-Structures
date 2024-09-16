@@ -1,0 +1,22 @@
+﻿<script src="lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+<script>
+    const connection = new signalR.HubConnectionBuilder()
+        .withUrl("/employeehub")
+        .build();
+
+    connection.on("ReceiveEmployee", (employee) => {
+        console.log(employee);
+    });
+
+    await connection.start();
+
+    await connection.invoke("AddEmployee", {
+        id: 1,
+        firstName: "John",
+        lastName: "Doe",
+        mobile: "1234567890",
+        email: "john@example.com",
+        address: "123 Main St"
+    });
+</script>
